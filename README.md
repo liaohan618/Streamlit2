@@ -1,5 +1,5 @@
 # Streamlit2 : Make a Dish!🪄
-link : https://app-makeadish-carxbk8qgfnon7rzje8gdq.streamlit.app
+link : https://app-makeadish-carxbk8qgfnon7rzje8gdq.streamlit.app/
 
 ### function 1: What ingredients do you have?
 Healthy plates options based on selected ingredients
