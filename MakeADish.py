@@ -56,14 +56,21 @@ def main():
     ## healthy
     if choice == 'healthy':
                 
-        # selected ingredients
-        selected_ingredients_tuple = tuple(
-    sorted(set(protein)) + sorted(set(veggies)) + sorted(set(staple)) + sorted(set(tool))
-) 
-        
-        if selected_ingredients_tuple in menu_dict:
-            suggested_recipe = menu_dict[selected_ingredients_tuple]
-            st.subheader(f"Suggested Recipe: {suggested_recipe}")
+#### v1.0.1.231222_beta FIXED!!! ####
+        selected_ingredients = tuple(protein + veggies + staple + tool)
+
+        # Check if the selected ingredients match any entry in menu_dict
+        for ingredients, recipe in menu_dict.items():
+            if set(selected_ingredients) == set(ingredients):
+                st.subheader(f"Suggested Recipe: {''.join(recipe)}")
+
+        # missing ingredients
+        selected_ingredients = list(set(sorted(protein + veggies + staple + tool))) # same but list
+        missing_ingredients_counts = []
+
+        for dish_ingredients, missing_count in missing_ingredients_counts:
+            if missing_count > 0:
+                st.text(f"{', '.join(dish_ingredients)}: {missing_count} missing ingredient(s)")
 
 
         # missing ingredients
