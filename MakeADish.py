@@ -80,14 +80,6 @@ def main():
                 st.text(f"{', '.join(dish_ingredients)}: {missing_count} missing ingredient(s)")
 
 
-        # missing ingredients
-        selected_ingredients = list(set(sorted(protein + veggies + staple + tool))) # same but list
-        missing_ingredients_counts = []
-
-        for dish_ingredients, missing_count in missing_ingredients_counts:
-            if missing_count > 0:
-                st.text(f"{', '.join(dish_ingredients)}: {missing_count} missing ingredient(s)")
-
         # Ask the user if they want to add missing ingredients to make a dish
         if missing_ingredients_counts:
             add_ingredients = st.checkbox("Do you want to add missing ingredients to make a dish?")
