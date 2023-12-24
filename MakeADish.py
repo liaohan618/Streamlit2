@@ -56,13 +56,20 @@ def main():
     ## healthy
     if choice == 'healthy':
                 
-#### v1.0.1.231222_beta FIXED!!! ####
-        selected_ingredients = tuple(protein + veggies + staple + tool)
+#### v1.0.1.231222_beta FIXED add multiple ingredients within same category!!! ####
+        
+#### v1.0.2.231224_beta FIXED suggest multiple recipe when there are matches!!! ####
+        selected_ingredients = set(protein + veggies + staple + tool)
 
         # Check if the selected ingredients match any entry in menu_dict
-        for ingredients, recipe in menu_dict.items():
-            if set(selected_ingredients) == set(ingredients):
-                st.subheader(f"Suggested Recipe: {''.join(recipe)}")
+        matched_dishes = [recipe for ingredients, recipe in menu_dict.items() if set(selected_ingredients).issuperset(set(ingredients))]
+
+        if matched_dishes:
+            st.subheader("Suggested Recipes:")
+            for dish in matched_dishes:
+                st.subheader(f"- {''.join(dish)}")
+        else:
+            st.text("No matching recipe found.")
 
         # missing ingredients
         selected_ingredients = list(set(sorted(protein + veggies + staple + tool))) # same but list
