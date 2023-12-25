@@ -47,7 +47,8 @@ vons_list = {
     # staple
     'bagel',
     'corn',
-    'potato'
+    'potato',
+    'pasta'
 }
 
 hmart_list = {

@@ -135,7 +135,6 @@ def main():
         for ingredient in suggested_groceries:
             for items in tj_list:
                 if ingredient in items:
-                    #found_items.append(''.join(items))
                     found_items.append('[' + ''.join(items) + ']')
 
         if found_items:
@@ -153,7 +152,7 @@ def main():
         for ingredient in suggested_groceries:
             for items in costco_list:
                 if ingredient in items:
-                    found_items.append(''.join(items))
+                    found_items.append('[' + ''.join(items) + ']')
 
         if found_items:
             st.text(f"You could find {', '.join(found_items)} in Costco!")
@@ -168,7 +167,7 @@ def main():
         for ingredient in suggested_groceries:
             for items in vons_list:
                 if ingredient in items:
-                    found_items.append(''.join(items))
+                    found_items.append('[' + ''.join(items) + ']')
 
         if found_items:
             st.text(f"You could find {', '.join(found_items)} in VONS!")
@@ -183,8 +182,7 @@ def main():
         for ingredient in suggested_groceries:
             for items in hmart_list:
                 if ingredient in items:
-                    found_items.append(''.join(items))
-
+                    found_items.append('[' + ''.join(items) + ']')
         if found_items:
             st.text(f"You could find {', '.join(found_items)} in H-Mart!")
         else:
