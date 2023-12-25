@@ -18,8 +18,7 @@ from ingredients import sides_list
 
 def main():
     st.title("Make a Dish! 🪄:sparkles:")
-    st.markdown(''':rainbow[Random generator for healthy food options]''')
-
+    st.markdown(''':rainbow[recipe generator for healthy food options]''')    
 
     ### INGREDIENT SELECTION
     st.header("What ingredients do you have?")
@@ -116,7 +115,8 @@ def main():
     suggested_groceries = set()
     if selected_dishes:
         suggested_groceries = grocery_suggestions(selected_dishes)
-        st.text(f"Suggested Grocery List: {', '.join(suggested_groceries)}")
+        bold_groceries = [f'**{ingredient}**' for ingredient in suggested_groceries]
+        st.markdown(f"Suggested Grocery List: {', '.join(bold_groceries)}")
     else:
         st.text("No dishes selected. Select dishes to get grocery suggestions.")
 
@@ -135,7 +135,8 @@ def main():
         for ingredient in suggested_groceries:
             for items in tj_list:
                 if ingredient in items:
-                    found_items.append(''.join(items))
+                    #found_items.append(''.join(items))
+                    found_items.append('[' + ''.join(items) + ']')
 
         if found_items:
             st.text(f"You could find {', '.join(found_items)} in Trader Joe's!")
